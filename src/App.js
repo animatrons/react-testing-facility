@@ -4,7 +4,6 @@ import './App.css';
 import Home from './Components/Home';
 import Counting from './Components/Counting';
 import Emptiness from './Components/Emptiness';
-import LinkSwitch from './Components/LinkSwitch';
 
 
 
@@ -28,6 +27,12 @@ const App = () => {
           <span id="lnk3" className="spnLnk">
             <Link className="lnk" onClick={() => setLSwitch(3)} to='/emptiness'>Emptiness</Link>
           </span>
+          {/* <span id="lnk4" className="spnLnk">
+            <Link className="lnk" onClick={() => setLSwitch(4)} to='/emptiness'>Emptiness</Link>
+          </span>
+          <span id="lnk5" className="spnLnk">
+            <Link className="lnk" onClick={() => setLSwitch(5)} to='/emptiness'>Emptiness</Link>
+          </span> */}
         </header>
         <Route exact path='/'>
           <Home></Home>

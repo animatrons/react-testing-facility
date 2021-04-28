@@ -14,20 +14,21 @@
 
 
 .content {
-  max-width: 800px; 
-  max-height: 900px;
+  min-width: 600px; 
+  min-height: 370px;
   padding: 1rem 3rem;
   border: 2px solid #61dafb;
   border-radius: 8px;
   color: #fff;
   position: relative;
   margin-bottom: 100px;
-}
-
-.content div{
-  margin: 2em;
   
 }
+
+/* .content div{
+  margin: 2em;
+  
+} */
 
 .header {
   margin: 0 auto;
@@ -78,4 +79,57 @@
   position: absolute;
   bottom: 7%;
   right: 30%;
+}
+
+.grid-form {
+  display: grid;
+  grid-template-columns: 1.25fr 2.5fr;
+  grid-template-rows: 1fr .25fr;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-align: left;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  justify-content: center;
+  align-items: center;
+}
+.grid-form * {
+  margin: 0;
+  height: 2.5em;
+  box-sizing: border-box;
+}
+.grid-form label[for="email"],input[type="text"]{
+  margin: 2em 0;
+}
+.content input[type="text"],input[type="password"]{
+  width: 200px
+}
+.content input[type="submit"]{
+  position: absolute;
+  right: 5%;
+  bottom: 5%;
+  padding: 0.2em 2em;
+}
+.logFail{
+  position: absolute;
+  bottom: 5%;
+  left: 30%;
+  right: 30%;
+  padding: 2% 2em;
+  color: rgb(255, 0, 0);
+  border: rgb(255, 0, 0) 1px solid;
+  border-radius: 5px;
+  text-align: center;
+}
+.logSuccess{
+  position: absolute;
+  bottom: 5%;
+  left: 30%;
+  right: 30%;
+  padding: 2% 2em;
+  color: rgb(43, 255, 0);
+  border: rgb(43, 255, 0) 1px solid;
+  border-radius: 5px;
+  text-align: center;
 }

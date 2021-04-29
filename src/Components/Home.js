@@ -1,9 +1,12 @@
 import {useForm} from '../Hooks/useForm'; 
-import {useState, useEffect} from 'react'
+import React, {useState, useEffect} from 'react'
+
+// let globalLogStatus = new
 
 function Home() {
 const [values, handleChange] = useForm({email: '', password: ''});
 const [loginSuccess, setLoginSuccess] = useState({clicked:false, passed:false});
+// const [state, dispatch] = useGlobalState();
 var logResult = <div ></div>
 
 // useEffect(() => {
@@ -29,26 +32,21 @@ var logResult = <div ></div>
 //           passed?: {(values.email === 'me@mail0com' & values.password === '0000')}
 //     </div>
 // }
-// if (loginSuccess.clicked & loginSuccess.passed) {
-//   logResult = 
-//       <div className="logSuccess" >
-//         Welcome back!
-//       </div>
-// }
-// else if (loginSuccess.clicked & !loginSuccess.passed) {
-//   logResult = 
-//       <div className="logFail" >
-//         Email or password wrong.
-//       </div>
-// }
-const logSuccess = 
+if (loginSuccess.clicked & loginSuccess.passed) {
+  document.querySelector('.grid-form').style.display = 'none';
+  logResult = 
       <div className="logSuccess" >
         Welcome back!
       </div>
-const logFail = 
-< div className="logFail" >
-  Email or password wrong.
-</div>
+}
+else if (loginSuccess.clicked & !loginSuccess.passed) {
+  
+  logResult = 
+      <div className="logFail" >
+        Email or password wrong.
+      </div>
+}
+
 
   return (
 
@@ -84,15 +82,18 @@ const logFail =
       <input 
         type="submit" 
         value="Log In" 
-        onClick={() => setLoginSuccess({clicked: true, passed: (values.email === 'me@mail0com' & values.password === '0000')})} 
+        onClick={() => {
+          setLoginSuccess({clicked: true, passed: (values.email === 'me@mail.com' & values.password === '0000')});
+
+        } } 
       />
      
-      {(loginSuccess.clicked & loginSuccess.passed) && logSuccess}
-      {(loginSuccess.clicked & !loginSuccess.passed) && logFail}
+      {logResult}
 
     </div>
 
   );
 }
+
 
 export default Home;

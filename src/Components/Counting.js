@@ -11,7 +11,7 @@ function Counting() {
   
     return (
       
-        <div className="content">
+        <div className="counting">
             <h1>
               Hooks-r-Cool tutorial
             </h1>

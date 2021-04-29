@@ -11,8 +11,6 @@
   overflow: hidden;
 }
 
-
-
 .content {
   min-width: 600px; 
   min-height: 370px;
@@ -23,6 +21,25 @@
   position: relative;
   margin-bottom: 100px;
   
+}
+
+/*** Home.js (identity) */
+
+.content h1 span {
+  font-weight: lighter;
+  font-size:medium;
+}
+
+/*** Features.js */
+
+.not-logged {
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  font-size: large;
+  width: 100%;
 }
 
 /* .content div{
@@ -81,7 +98,7 @@
   right: 30%;
 }
 
-.grid-form {
+.grid-form-2 {
   display: grid;
   grid-template-columns: 1.25fr 2.5fr;
   grid-template-rows: 1fr .25fr;
@@ -93,6 +110,17 @@
   margin: 0;
   justify-content: center;
   align-items: center;
+}
+.grid-form-1 {
+  display: grid;
+  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-align: left;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  place-items: center;
 }
 .grid-form * {
   margin: 0;
@@ -110,6 +138,7 @@
   right: 5%;
   bottom: 5%;
   padding: 0.2em 2em;
+  font-size: large;
 }
 .logFail{
   position: absolute;
@@ -124,10 +153,12 @@
 }
 .logSuccess{
   position: absolute;
-  bottom: 5%;
-  left: 30%;
-  right: 30%;
-  padding: 2% 2em;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  transform: translate(-50%, -50%);
+  padding: 1em 3em;
+  font-weight: bold;
   color: rgb(43, 255, 0);
   border: rgb(43, 255, 0) 1px solid;
   border-radius: 5px;

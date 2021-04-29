@@ -1,9 +1,8 @@
 import React, { useState, Suspense } from 'react';
-import { useStore, withStore} from 'react-context-hook';
+import { withStore } from 'react-context-hook';
 import { Link, Route, BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
 import Home from './Components/Home';
-import Counting from './Components/Counting';
 import Emptiness from './Components/Emptiness';
 import Features from './Components/Features';
 
@@ -17,24 +16,17 @@ const App = () => {
     <Router>
       <div className="App">
         <header className="header">
-          {/* {lnk1}
-          {lnk2}
-          {lnk3} */}
+          
           <span id="lnk1" className="spnLnk">
             <Link className="lnk" onClick={() => setLSwitch(1)} to='/'>Home</Link>
           </span>
           <span id="lnk2" className="spnLnk">
-            <Link className="lnk" onClick={() => setLSwitch(2)} to='/features'>features</Link>
+            <Link className="lnk" onClick={() => setLSwitch(2)} to='/features'>Features</Link>
           </span>
           <span id="lnk3" className="spnLnk">
             <Link className="lnk" onClick={() => setLSwitch(3)} to='/emptiness'>Emptiness</Link>
           </span>
-          {/* <span id="lnk4" className="spnLnk">
-            <Link className="lnk" onClick={() => setLSwitch(4)} to='/emptiness'>Emptiness</Link>
-          </span>
-          <span id="lnk5" className="spnLnk">
-            <Link className="lnk" onClick={() => setLSwitch(5)} to='/emptiness'>Emptiness</Link>
-          </span> */}
+
         </header>
         <Route exact path='/'>
           <Home></Home>

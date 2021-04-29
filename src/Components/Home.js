@@ -1,6 +1,6 @@
 import {useForm} from '../Hooks/useForm'; 
-import {useState, useEffect} from 'react'
-import { useStore, withStore} from 'react-context-hook';
+import {useState} from 'react'
+import { useStore} from 'react-context-hook';
 
 
 function Home() {
@@ -10,26 +10,26 @@ const [logged, setLogState, deleteLog] = useStore('logged');
 
 var logResult = <div ></div>
 
-
-const logSuccess = 
-      <div className="logSuccess" >
-        Welcome back!
+if (loginSuccess.clicked & !loginSuccess.passed) {
+  logResult = 
+      <div className="logFail" >
+        Email or password wrong. {logged}
       </div>
-const logFail = 
-< div className="logFail" >
-  Email or password wrong.
-</div>
+}
 
+  if (!logged) 
   return (
 
     <div className="content">
       <h1>
-        React testing facility
-            </h1>
-      <div className="grid-form">
+        React testing facility<br/>
+        <span>Please identify yourself</span>
+      </h1>
+      <div className="grid-form-2">
+
         <label for="email">
           Email:
-              </label>
+        </label>
         <input 
           placeholder="e: me@mail.com, pass: 0000"
           type="text" 
@@ -38,6 +38,7 @@ const logFail =
           value={values.email}
           onChange = {handleChange}
         ></input>
+
         <label for="pass">
           Password: 
         </label> 
@@ -49,21 +50,45 @@ const logFail =
           onChange = {handleChange}
         >
         </input>
+
       </div>
       
       <input 
         type="submit" 
         value="Log In" 
         onClick={() =>{ 
-            setLoginSuccess({clicked: true, passed: (values.email === 'me@mail0com' & values.password === '0000')});
-            setLogState((values.email === 'me@mail0com' & values.password === '0000'));
+            setLoginSuccess({clicked: true, passed: (values.email === 'me@mail.com' & values.password === '0000')});
+            setLogState((values.email === 'me@mail.com' & values.password === '0000'));
           }
         } 
       />
+
       {logResult}
         
     </div>
+  );
 
+  return (
+    <div className="content">
+      <h1>
+        React testing facility
+      </h1>
+
+      <div className="grid-form-1">
+        <div className="logSuccess" >
+          Welcome back!  
+        </div>
+      </div>
+      
+      <input 
+        type="submit" 
+        value="Log Out" 
+        onClick={() =>{ 
+            setLogState(false);
+            }
+          } 
+      />
+    </div>
   );
 }
 

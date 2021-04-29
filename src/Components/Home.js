@@ -1,46 +1,16 @@
 import {useForm} from '../Hooks/useForm'; 
 import {useState, useEffect} from 'react'
+import { useStore, withStore} from 'react-context-hook';
+
 
 function Home() {
 const [values, handleChange] = useForm({email: '', password: ''});
 const [loginSuccess, setLoginSuccess] = useState({clicked:false, passed:false});
+const [logged, setLogState, deleteLog] = useStore('logged');
+
 var logResult = <div ></div>
 
-// useEffect(() => {
-//   if(loginSuccess) {
-//     logResult = 
-//       <div className="logSuccess" >
-//         Welcome back!
-//       </div>
-//   }
-//   else {
-//     logResult = 
-//       <div className="logFail" >
-//         Email or password wrong.
-//       </div>
-//   }
-// }
-// , [loginSuccess])
-// if (loginSuccess) {
-//   logResult = 
-//     <div className="logSuccess"> 
-//           email: {values.email}, 
-//           password: {values.password}
-//           passed?: {(values.email === 'me@mail0com' & values.password === '0000')}
-//     </div>
-// }
-// if (loginSuccess.clicked & loginSuccess.passed) {
-//   logResult = 
-//       <div className="logSuccess" >
-//         Welcome back!
-//       </div>
-// }
-// else if (loginSuccess.clicked & !loginSuccess.passed) {
-//   logResult = 
-//       <div className="logFail" >
-//         Email or password wrong.
-//       </div>
-// }
+
 const logSuccess = 
       <div className="logSuccess" >
         Welcome back!
@@ -84,12 +54,14 @@ const logFail =
       <input 
         type="submit" 
         value="Log In" 
-        onClick={() => setLoginSuccess({clicked: true, passed: (values.email === 'me@mail0com' & values.password === '0000')})} 
+        onClick={() =>{ 
+            setLoginSuccess({clicked: true, passed: (values.email === 'me@mail0com' & values.password === '0000')});
+            setLogState((values.email === 'me@mail0com' & values.password === '0000'));
+          }
+        } 
       />
-     
-      {(loginSuccess.clicked & loginSuccess.passed) && logSuccess}
-      {(loginSuccess.clicked & !loginSuccess.passed) && logFail}
-
+      {logResult}
+        
     </div>
 
   );

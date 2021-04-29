@@ -1,11 +1,13 @@
 import React, { useState, Suspense } from 'react';
+import { useStore, withStore} from 'react-context-hook';
 import { Link, Route, BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
 import Home from './Components/Home';
 import Counting from './Components/Counting';
 import Emptiness from './Components/Emptiness';
+import Features from './Components/Features';
 
-
+const logState = {logged: false};
 
 const App = () => {
   const [lswitch, setLSwitch] = useState(1);
@@ -22,7 +24,7 @@ const App = () => {
             <Link className="lnk" onClick={() => setLSwitch(1)} to='/'>Home</Link>
           </span>
           <span id="lnk2" className="spnLnk">
-            <Link className="lnk" onClick={() => setLSwitch(2)} to='/counter'>Counter</Link>
+            <Link className="lnk" onClick={() => setLSwitch(2)} to='/features'>features</Link>
           </span>
           <span id="lnk3" className="spnLnk">
             <Link className="lnk" onClick={() => setLSwitch(3)} to='/emptiness'>Emptiness</Link>
@@ -37,8 +39,8 @@ const App = () => {
         <Route exact path='/'>
           <Home></Home>
         </Route>
-        <Route path='/counter'>
-          <Counting></Counting>
+        <Route path='/features'>
+          <Features></Features>
         </Route>
         <Route path='/emptiness'>
           <Emptiness></Emptiness>
@@ -51,4 +53,4 @@ const App = () => {
   );
 }
 
-export default App;
+export default withStore(App, logState);

@@ -1,5 +1,5 @@
 import {useForm} from '../Hooks/useForm'; 
-import {useState} from 'react'
+import React, { useState, Suspense } from 'react';
 import { useStore} from 'react-context-hook';
 
 
@@ -7,6 +7,7 @@ function Home() {
 const [values, handleChange] = useForm({email: '', password: ''});
 const [loginSuccess, setLoginSuccess] = useState({clicked:false, passed:false});
 const [logged, setLogState, deleteLog] = useStore('logged');
+const TabSwitch = React.lazy(() => import('../Components/tabSwitch'));
 
 var logResult = <div ></div>
 
@@ -27,11 +28,11 @@ if (loginSuccess.clicked & !loginSuccess.passed) {
       </h1>
       <div className="grid-form-2">
 
-        <label for="email">
+        <label htmlFor="email">
           Email:
         </label>
         <input 
-          placeholder="e: me@mail.com, pass: 0000"
+          placeholder="input: me@mail.com"
           type="text" 
           id="email"
           name="email"
@@ -39,10 +40,11 @@ if (loginSuccess.clicked & !loginSuccess.passed) {
           onChange = {handleChange}
         ></input>
 
-        <label for="pass">
+        <label htmlFor="pass">
           Password: 
         </label> 
         <input 
+          placeholder="input: 0000"
           type="password" 
           id="pass"
           name="password"
@@ -64,6 +66,9 @@ if (loginSuccess.clicked & !loginSuccess.passed) {
       />
 
       {logResult}
+      <Suspense fallback = {<div> loading... </div>}>
+        <TabSwitch  slnk = {1}></TabSwitch>
+      </Suspense>
         
     </div>
   );
@@ -88,6 +93,9 @@ if (loginSuccess.clicked & !loginSuccess.passed) {
             }
           } 
       />
+      <Suspense fallback = {<div> loading... </div>}>
+        <TabSwitch  slnk = {1}></TabSwitch>
+      </Suspense>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 
+//* for switching between tabs in the nav bar, only an esthetic feature
 
-function LinkSwitch(props) {
+function tabSwitch(props) {
     if (props.slnk === 1) {
         document.getElementById("lnk1").classList.add("l-switched");
         document.getElementById("lnk2").classList.remove("l-switched");
@@ -25,4 +26,4 @@ function LinkSwitch(props) {
     )
 }
 
-export default LinkSwitch;
+export default tabSwitch;

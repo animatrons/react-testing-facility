@@ -1,3 +1,4 @@
+
 .App {
   text-align: center;
   background-color: #282c34;
@@ -12,9 +13,10 @@
 }
 
 .content {
-  min-width: 600px; 
-  min-height: 370px;
-  padding: 1rem 3rem;
+  min-width: 680px; 
+  min-height: 440px;
+  /* padding: 1rem 3rem; */
+  padding:  0;
   border: 2px solid #61dafb;
   border-radius: 8px;
   color: #fff;
@@ -27,11 +29,52 @@
 
 .content h1 span {
   font-weight: lighter;
-  font-size:medium;
+  font-size: medium;
 }
 
 /*** Features.js */
+.features {
+  padding:  0;
+}
+.logged {
+  margin-top: 4.5em;
+}
+.nav-tabs {
+  position: absolute;
+  display: flex;
+  top: 0;
+  width: 100%;
+  height: 12%;
+  /* justify-content: space-around;
+  align-items: center; */
+  color: #282c34;
+  background-color: #61dafb;
+  padding: 0;
+}
+.nav-tabs span {
+  width: 33%;
+  font-weight: bold;
+  padding: 0.9em;
+  border-right: 4px solid #282c34;
+  border-bottom: 4px solid #282c34;
+}
+.nav-tabs .lnk {
+  text-decoration: none;
+  color: inherit;
+}
+.nav-tabs :nth-child(3) { 
+  border-right: 4px solid #61dafb;
+}
+.nav-tabs #tab1 { 
+  border-left: 4px solid #61dafb;
+}
 
+.selected-tab {
+  color: #61dafb;
+  background-color: #282c34;
+}
+
+/*  */
 .not-logged {
   position: absolute;
   left: 50%;
@@ -41,11 +84,7 @@
   font-size: large;
   width: 100%;
 }
-
-/* .content div{
-  margin: 2em;
-  
-} */
+/*  */
 
 .header {
   margin: 0 auto;

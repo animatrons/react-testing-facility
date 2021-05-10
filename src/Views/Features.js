@@ -42,7 +42,7 @@ function Features() {
                     document.getElementById(values.oldId).classList.remove('selected-tab');
                 }, 0)}
                 <div className="logged">
-                    <h2>Wow! it worked</h2>
+                    <h2>Welcome back!</h2>
                 </div>
                 <Route path='/features/here'>
                     <Today></Today>

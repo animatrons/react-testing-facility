@@ -48,7 +48,7 @@
   /* justify-content: space-around;
   align-items: center; */
   color: #282c34;
-  background-color: #61dafb;
+  background-color: rgb(97, 218, 251);
   padding: 0;
 }
 .nav-tabs span {
@@ -202,4 +202,33 @@
   border: rgb(43, 255, 0) 1px solid;
   border-radius: 5px;
   text-align: center;
+}
+
+.grid-4{
+  display: grid;
+  grid-template-columns: 100px 100px;
+  grid-template-rows: 100px 100px;
+}
+
+.grid-4 .sq {
+  border: 2px solid white;
+  border-radius: 5px;
+  margin: 10px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.grid-4 .sq:hover{
+  border-color: #61dafb;
+  color: #61dafb;
+} 
+
+
+
+.this{
+  display: grid;
+  grid-template-rows: 1fr 2fr;
+  justify-content: center;
+  align-items: center;
 }

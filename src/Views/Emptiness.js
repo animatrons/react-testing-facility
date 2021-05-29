@@ -1,10 +1,10 @@
-import tabSwitch from '../Components/tabSwitch';
+import tabSwitch from '../Components/SubComponents/tabSwitch';
 import React, { useState, Suspense } from 'react';
 import { useStore } from 'react-context-hook';
 
 function Emptiness() {
   const [logged, setLogState, deleteLog] = useStore('logged');
-  const TabSwitch = React.lazy(() => import('../Components/tabSwitch'));
+  const TabSwitch = React.lazy(() => import('../Components/SubComponents/tabSwitch'));
 
   if (logged) {
     return (

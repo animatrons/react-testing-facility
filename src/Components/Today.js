@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Clock from './SubComponents/Clock';
 
 function expensiveInitialState(){
     //.. some expensive computaions
@@ -15,12 +16,14 @@ function Today() {
     return (
       
         <div >
-            <h1>
+            {/* <h1>
               Today is {[month, date, year]  }
             </h1>
             <div>
               local time: {[hour, minute, second]}
-            </div>
+            </div> */}
+
+            <Clock />
             
         </div>
       

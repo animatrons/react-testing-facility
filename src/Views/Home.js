@@ -1,5 +1,5 @@
 import {useForm} from '../Hooks/useForm'; 
-import React, { useState, Suspense } from 'react';
+import React, { useState, Suspense, useRef, useEffect } from 'react';
 import { useStore} from 'react-context-hook';
 
 
@@ -7,7 +7,13 @@ function Home() {
 const [values, handleChange] = useForm({email: '', password: ''});
 const [loginSuccess, setLoginSuccess] = useState({clicked:false, passed:false});
 const [logged, setLogState, deleteLog] = useStore('logged');
-const TabSwitch = React.lazy(() => import('../Components/tabSwitch'));
+const TabSwitch = React.lazy(() => import('../Components/SubComponents/tabSwitch'));
+
+const inptEmail = useRef();
+
+useEffect(() => {
+  if (!logged) inptEmail.current.focus();
+},[logged])
 
 var logResult = <div ></div>
 
@@ -38,6 +44,7 @@ if (loginSuccess.clicked & !loginSuccess.passed) {
           name="email"
           value={values.email}
           onChange = {handleChange}
+          ref={inptEmail}
         ></input>
 
         <label htmlFor="pass">

@@ -51,20 +51,20 @@
   background-color: rgb(97, 218, 251);
   padding: 0;
 }
+.nav-tabs :last-child { 
+  border-right: 4px solid #61dafb;
+}
 .nav-tabs span {
-  width: 33%;
   font-weight: bold;
   padding: 0.9em;
-  border-right: 4px solid #282c34;
   border-bottom: 4px solid #282c34;
 }
 .nav-tabs .lnk {
   text-decoration: none;
   color: inherit;
+  border-right:initial;
 }
-.nav-tabs :nth-child(3) { 
-  border-right: 4px solid #61dafb;
-}
+
 .nav-tabs #tab1 { 
   border-left: 4px solid #61dafb;
 }
@@ -72,6 +72,10 @@
 .selected-tab {
   color: #61dafb;
   background-color: #282c34;
+}
+
+.tab:hover {
+  border-bottom: 8px solid #282c34;;
 }
 
 /*  */
